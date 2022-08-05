@@ -7,9 +7,12 @@ import android.view.Menu
 import androidx.appcompat.widget.SearchView
 import br.com.andrebalogo.portifoliogithub.R
 import br.com.andrebalogo.portifoliogithub.databinding.ActivityMainBinding
+import br.com.andrebalogo.portifoliogithub.repositories.presentation.MainViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
 
+    private val viewModel by viewModel<MainViewModel>()
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,6 +20,10 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         setContentView(binding.root)
 
        setSupportActionBar(binding.toolbar)
+
+        viewModel.repos.observe(this) {
+
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
