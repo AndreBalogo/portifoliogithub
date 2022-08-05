@@ -33,7 +33,6 @@ fun Context.createDialog(block: MaterialAlertDialogBuilder.() -> Unit = {}): Ale
 fun Context.createProgessDialog(): AlertDialog {
  return createDialog {
   val padding= this@createProgessDialog.resources.getDimensionPixelOffset(R.dimen.layout_padding)
-  // TODO criar a xml da dimens
   val progressBar = ProgressBar(this@createProgessDialog)
   progressBar.setPadding(padding,padding,padding,padding)
   setView(progressBar)
